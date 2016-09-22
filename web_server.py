@@ -1,6 +1,5 @@
 #--*--coding: utf-8--*--
 #!/usr/bin/python2
-#test
 
 import sqlite3
 import random

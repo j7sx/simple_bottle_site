@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>mmm... Ajax!</title>
+<title>Bottle simple site</title>
 <script type="text/javascript" src="../static/jquery.js"></script>
 <style type="text/css">
 @import url(static/css.css);
@@ -27,7 +27,7 @@
         <input type="submit" value="enter"/>
         </form>
     </div>
-    <div id="foot">Tutorial by James for NETTUTS</div>
+    <div id="foot">Bottle tutorial by j7sx</div>
 </div>
 </body>
 </html>

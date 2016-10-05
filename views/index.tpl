@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Bottle simple site</title>
 <script type="text/javascript" src="../static/jquery.js"></script>
+<script type="text/javascript" src="../static/jquery.noty.packaged.min.js"></script>
 <style type="text/css">
 @import url(static/css.css);
 </style>
@@ -19,7 +20,7 @@
         <li><a href="views/contact.html">contact</a></li>
         <li><a href="/lk">profile</a></li>
     </ul>
-    <div id="content">    	
+    <div id="content">
         <h2>Welcome!</h2>
         <p>Hi, welcome to the demonstration for the NETTUTS tutorial - "How to Load In and Animate Content with jQuery"</p>
         <p>In this tutorial we will be taking your average everyday website and enhancing it with jQuery. We will be adding ajax functionality so that the content loads into the relevant container instead of the user having to navigate to another page. We will also be integrating some awesome effects...</p>

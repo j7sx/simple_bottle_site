@@ -150,7 +150,7 @@ def do_login():
             response.set_cookie("user", str(cookie), path='/')
             return template('views/lk.tpl', name=login)
         else:
-            return template("views/bad_password.tpl")
+            redirect ("/login?status=bad")
     else:
         return "Bad Login!"
 

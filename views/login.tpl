@@ -4,10 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Bottle simple site</title>
 <script type="text/javascript" src="../static/jquery.js"></script>
+<script type="text/javascript" src="../static/jquery.noty.packaged.min.js"></script>
 <style type="text/css">
 @import url(static/css.css);
 </style>
 <script type="text/javascript" src="../static/js.js"></script>
+
+
+
 </head>
 <body>
     <div id="wrapper">
@@ -19,7 +23,23 @@
         <li><a href="views/contact.html">contact</a></li>
         <li><a href="/lk">profile</a></li>
     </ul>
+    <div id="status"></div>
     <div id="content">    	
+    <script>
+var tmp = new Array();     
+var tmp2 = new Array();     
+var param = new Array();
+ 
+var get = location.search;  // строка GET запроса
+if(get != '') {
+    tmp = (get.substr(1));
+    tmp2 = tmp.split('=');
+    param = tmp2[1];
+    if (param == 'bad'){
+    document.getElementById('status').innerHTML = '<b>Не верный пароль</b>';
+}
+}
+</script>
         <h2>Sign In:</h2>
         <form action="/login" method="post">
         Login: <input type="text" name="login"/>

@@ -24,22 +24,29 @@
         <li><a href="/lk">profile</a></li>
     </ul>
     <div id="status"></div>
-    <div id="content">    	
+    <div id="content">
     <script>
-var tmp = new Array();     
-var tmp2 = new Array();     
-var param = new Array();
- 
-var get = location.search;  // строка GET запроса
-if(get != '') {
-    tmp = (get.substr(1));
-    tmp2 = tmp.split('=');
-    param = tmp2[1];
-    if (param == 'bad'){
-    document.getElementById('status').innerHTML = '<b>Не верный пароль</b>';
-}
-}
-</script>
+        var tmp = new Array();
+        var tmp2 = new Array();
+        var param = new Array();
+
+        var get = location.search;  // строка GET запроса
+        if(get != '') {
+        tmp = (get.substr(1));
+        tmp2 = tmp.split('=');
+        param = tmp2[1];
+        if (param == 'bad'){
+          document.getElementById('status').innerHTML = '<b>Не верный пароль</b>';
+          $.noty.defaults.killer = true;
+            noty({
+            text: 'Wrong password!',
+            layout: 'center',
+            closeWith: ['click', 'hover'],
+            type: 'error'
+            });
+        }
+    }
+    </script>
         <h2>Sign In:</h2>
         <form action="/login" method="post">
         Login: <input type="text" name="login"/>

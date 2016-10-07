@@ -124,9 +124,9 @@ def reg():
 
 @post('/reg')
 def do_reg():
-    login = request.forms.get('login')
-    pwd = request.forms.get('pwd')
-    email = request.forms.get('email')
+    login = request.forms.get('login').decode('utf-8')
+    pwd = request.forms.get('pwd').decode('utf-8')
+    email = request.forms.get('email').decode('utf-8')
     hashed_pwd = pwd_gen(pwd)
     write_To_DB(login, hashed_pwd, email)
     return template("views/reg_success.tpl", name=login)
@@ -137,8 +137,8 @@ def login():
 
 @post('/login')
 def do_login():
-    login = request.forms.get("login")
-    pwd = request.forms.get("pwd")
+    login = request.forms.get("login").decode('utf-8')
+    pwd = request.forms.get("pwd").decode('utf-8')
     hashed_pwd = pwd_gen(pwd)
     isUser = check_login(login)
     if isUser:
@@ -152,7 +152,7 @@ def do_login():
         else:
             redirect ("/login?status=bad")
     else:
-        return "Bad Login!"
+        redirect ("/login?status=wrong")
 
 @route('/lk')
 def lk():

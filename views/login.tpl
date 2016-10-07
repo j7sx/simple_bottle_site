@@ -45,6 +45,15 @@
             type: 'error'
             });
         }
+        else if(param == 'wrong'){
+        $.noty.defaults.killer = true;
+            noty({
+            text: 'Wrong login!',
+            layout: 'center',
+            closeWith: ['click', 'hover'],
+            type: 'error'
+            });
+        }
     }
     </script>
         <h2>Sign In:</h2>

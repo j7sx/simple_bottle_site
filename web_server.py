@@ -42,7 +42,7 @@ def secret_key():
 
 	#Преобразуем список из 5-ти символов в строку
 	string = ''.join(r)
-	sh=string + 'login'
+	sh=(string + 'login').encode('utf-8')
 	secret_key = hashlib.sha1(sh).hexdigest()
 	return secret_key
 
@@ -124,9 +124,9 @@ def reg():
 
 @post('/reg')
 def do_reg():
-    login = request.forms.get('login').decode('utf-8')
-    pwd = request.forms.get('pwd').decode('utf-8')
-    email = request.forms.get('email').decode('utf-8')
+    login = request.forms.get('login')
+    pwd = request.forms.get('pwd')
+    email = request.forms.get('email')
     hashed_pwd = pwd_gen(pwd)
     write_To_DB(login, hashed_pwd, email)
     return template("views/reg_success.tpl", name=login)
@@ -137,8 +137,8 @@ def login():
 
 @post('/login')
 def do_login():
-    login = request.forms.get("login").decode('utf-8')
-    pwd = request.forms.get("pwd").decode('utf-8')
+    login = request.forms.get("login")
+    pwd = request.forms.get("pwd")
     hashed_pwd = pwd_gen(pwd)
     isUser = check_login(login)
     if isUser:
@@ -148,7 +148,7 @@ def do_login():
             set_session_key(sk, login)
             cookie = get_session_key(login)
             response.set_cookie("user", str(cookie), path='/')
-            return template('views/lk.tpl', name=login)
+            return template('views/lk.tpl', name=login.encode('utf-8'))
         else:
             redirect ("/login?status=bad")
     else:

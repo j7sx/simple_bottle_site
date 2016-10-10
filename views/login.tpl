@@ -4,7 +4,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Bottle simple site</title>
 <script type="text/javascript" src="../static/jquery.js"></script>
-<script type="text/javascript" src="../static/jquery.noty.packaged.min.js"></script>
 <style type="text/css">
 @import url(static/css.css);
 </style>
@@ -35,24 +34,8 @@
         tmp = (get.substr(1));
         tmp2 = tmp.split('=');
         param = tmp2[1];
-        if (param == 'bad'){
-          document.getElementById('status').innerHTML = '<b>Не верный пароль</b>';
-          $.noty.defaults.killer = true;
-            noty({
-            text: 'Wrong password!',
-            layout: 'center',
-            closeWith: ['click', 'hover'],
-            type: 'error'
-            });
-        }
-        else if(param == 'wrong'){
-        $.noty.defaults.killer = true;
-            noty({
-            text: 'Wrong login!',
-            layout: 'center',
-            closeWith: ['click', 'hover'],
-            type: 'error'
-            });
+        if (param == 'bad' || param == 'wrong'){
+          document.getElementById('status').innerHTML = '<b>BAD LOGIN OR PASSWORD</b>';
         }
     }
     </script>

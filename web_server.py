@@ -6,13 +6,14 @@ import random
 import hashlib
 import base64
 import os
+from db_create import db_create
 from bottle import route, request, post, run, template, static_file, response, redirect
 
 ############################### Регистрация пользователя с введенными при регистрации данными ###########
-def write_To_DB(login, pwd, email):
+def write_To_DB(login, pwd, email, admin):
     db = sqlite3.connect("site.db")
     cur = db.cursor()
-    cur.execute("insert into users(login, password, email, admin) values(?, ?, ?, 0)", (login,pwd, email,))
+    cur.execute("insert into users(login, password, email, admin) values(?, ?, ?, ?)", (login,pwd, email, admin,))
     db.commit()
     db.close()
 
@@ -119,6 +120,21 @@ def html(filename):
 def images(filename):
     return static_file(filename, root='static/images')
 
+######################## инсталлятор ##########################################
+@route('/install')
+def install():
+    return template('views/install.tpl')
+@post('/install')
+def do_install():
+    db_create()
+    login = request.forms.get('login').decode('utf-8')
+    pwd = request.forms.get('password').decode('utf-8')
+    email = request.forms.get('email').decode('utf-8')
+    admin = 1
+    hashed_pwd = pwd_gen(pwd)
+    write_To_DB(login, hashed_pwd, email, admin)
+    return template("views/reg_success.tpl", name=login)
+
 ########### INDEX #################################
 @route('/')
 def index():
@@ -138,8 +154,9 @@ def do_reg():
     login = request.forms.get('login').decode('utf-8')
     pwd = request.forms.get('pwd').decode('utf-8')
     email = request.forms.get('email').decode('utf-8')
+    admin = 0
     hashed_pwd = pwd_gen(pwd)
-    write_To_DB(login, hashed_pwd, email)
+    write_To_DB(login, hashed_pwd, email, admin)
     return template("views/reg_success.tpl", name=login)
 
 @route('/login')
@@ -172,7 +189,7 @@ def lk():
     if user:
         if admin == 0:
             return template('views/lk.tpl', name=get_username() )
-        else:
+        elif admin == 1:
             return template('views/admin.tpl')
     else:
         return template('views/login.tpl')

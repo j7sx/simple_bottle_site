@@ -73,6 +73,17 @@ def get_username():
     db.close()
     return user[0]
 
+
+############################ определяем админа ##########################################
+def is_admin(login):
+    db = sqlite3.connect("site.db")
+    cur = db.cursor()
+    cur.execute("select admin from users where login=?", (login,))
+    admin = cur.fetchone()
+    db.close()
+    return admin[0]
+
+
 ######################### удаляем куки. logout ###########################################
 def delete_cookie(sid):
     db = sqlite3.connect("site.db")
@@ -157,8 +168,12 @@ def do_login():
 @route('/lk')
 def lk():
     user = request.get_cookie("user")
+    admin = is_admin(get_username())
     if user:
-        return template('views/lk.tpl', name=get_username() )
+        if admin == 0:
+            return template('views/lk.tpl', name=get_username() )
+        else:
+            return template('views/admin.tpl')
     else:
         return template('views/login.tpl')
 

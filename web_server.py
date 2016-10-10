@@ -12,7 +12,7 @@ from bottle import route, request, post, run, template, static_file, response, r
 def write_To_DB(login, pwd, email):
     db = sqlite3.connect("site.db")
     cur = db.cursor()
-    cur.execute("insert into users(login, password, email) values(?, ?, ?)", (login,pwd, email,))
+    cur.execute("insert into users(login, password, email, admin) values(?, ?, ?, ?)", (login,pwd, email, 0,))
     db.commit()
     db.close()
 

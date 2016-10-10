@@ -21,7 +21,7 @@
     </ul>
     <div id="content">
         <form action="/install" method="post">
-            <h2>CREATE ADMIN ACCOUNT</h2>
+            <h2>CREATE ADMIN ACCOUNT and DB</h2>
             login: <input type="text" name="login"/>
             password: <input type="password" name="password"/>
             email: <input type="text" name="email"/>

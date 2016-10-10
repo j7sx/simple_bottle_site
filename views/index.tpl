@@ -4,7 +4,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Bottle simple site</title>
 <script type="text/javascript" src="../static/jquery.js"></script>
-<script type="text/javascript" src="../static/jquery.noty.packaged.min.js"></script>
 <style type="text/css">
 @import url(static/css.css);
 </style>

@@ -75,8 +75,21 @@ p {
 #content img.right {
 	float: right;
 	margin: 0 0 8px 8px;
-
 }
+
+#status {
+    width: 710px;
+    height:30px;
+    line-height:30px;
+    text-align: center;
+    text-size: 24px;
+    background-color: #ffc0cb;
+    background-position: center;
+    border: 1px solid #ff0000;
+    color: #FF0000;
+    display: none;
+}
+
 #foot {
 	padding: 15px;
 	color: white;

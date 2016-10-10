@@ -36,6 +36,8 @@
         param = tmp2[1];
         if (param == 'bad' || param == 'wrong'){
           document.getElementById('status').innerHTML = '<b>BAD LOGIN OR PASSWORD</b>';
+          var obj = document.getElementById('status');
+          obj.style.display = "block";
         }
     }
     </script>

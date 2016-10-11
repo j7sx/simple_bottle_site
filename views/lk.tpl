@@ -20,8 +20,8 @@
         <li><a href="/lk">profile</a></li>
     </ul>
     <div id="content">    	
-    	"Hello,{{name}} Welcome back."<br>
-				<a href="/logout">Logout</a></div>
+    	"Hello,{{name}} Welcome back."	<div id="logout"><a href="/logout">Logout</a></div> 
+    </div>
     <div id="foot">Bottle tutorial by j7sx</div>
 </div>
 </body>

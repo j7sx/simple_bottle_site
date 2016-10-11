@@ -59,6 +59,7 @@ h1 {
 }
 
 #content {
+color: #ffffff;
 }
 h2 {
 	margin: 0;
@@ -88,6 +89,13 @@ p {
     border: 1px solid #ff0000;
     color: #FF0000;
     display: none;
+}
+
+#logout a{
+    float: right;
+    color: #00cc00;
+    margin-right: 20px;
+    margin-top: -20px;
 }
 
 #foot {

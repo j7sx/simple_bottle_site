@@ -59,6 +59,7 @@ h1 {
 }
 
 #content {
+color: #ffffff;
 }
 h2 {
 	margin: 0;
@@ -75,21 +76,40 @@ p {
 #content img.right {
 	float: right;
 	margin: 0 0 8px 8px;
-
 }
 
 #status {
-width: 710px;
-height:30px;
-line-height:30px;
-text-align: center;
-text-size: 24px;
-background-color: #ffc0cb;
-background-position: center;
-border: 1px solid #ff0000;
-color: #FF0000;
-display: none;
+    width: 710px;
+    height:30px;
+    line-height:30px;
+    text-align: center;
+    text-size: 24px;
+    background-color: #ffc0cb;
+    background-position: center;
+    border: 1px solid #ff0000;
+    color: #FF0000;
+    display: none;
 }
+
+#logout a{
+    float: right;
+    color: #00cc00;
+    margin-right: 20px;
+    margin-top: -20px;
+}
+
+#user a {
+  color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: rgb(212,75,56); /* фон кнопки */
+  padding: .7em 1.5em; /* отступ от текста */
+  outline: none; /* убирать контур в Mozilla */
+  display: inline-block;
+} 
+
+#user a:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
+#user a:active { background: rgb(152,15,0); } /* при нажатии */
 
 #foot {
 	padding: 15px;

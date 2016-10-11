@@ -21,6 +21,9 @@
     </ul>
     <div id="content">    	
     	"Hello,{{name}} Welcome back."	<div id="logout"><a href="/logout">Logout</a></div> 
+        <div id="user">
+          <a href="/user_info">My INFO</a> <a href="/lots">Лоты</a> <a href="/balance">Пополнить счёт</a>
+        </div>
     </div>
     <div id="foot">Bottle tutorial by j7sx</div>
 </div>

@@ -185,8 +185,8 @@ def do_login():
 @route('/lk')
 def lk():
     user = request.get_cookie("user")
-    admin = is_admin(get_username())
     if user:
+	admin = is_admin(get_username())
         if admin == 0:
             return template('views/lk.tpl', name=get_username() )
         elif admin == 1:

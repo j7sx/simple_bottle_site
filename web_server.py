@@ -7,7 +7,7 @@ import hashlib
 import base64
 import os
 from db_create import db_create
-from bottle import route, request, post, run, template, static_file, response, redirect
+from bottle import route, request, post, run, template, static_file, response, redirect, abort
 
 ############################### Регистрация пользователя с введенными при регистрации данными ###########
 def write_To_DB(login, pwd, email, admin):
@@ -186,7 +186,7 @@ def do_login():
 def lk():
     user = request.get_cookie("user")
     if user:
-	admin = is_admin(get_username())
+        admin = is_admin(get_username())
         if admin == 0:
             return template('views/lk.tpl', name=get_username() )
         elif admin == 1:

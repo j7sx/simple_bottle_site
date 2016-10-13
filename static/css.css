@@ -110,8 +110,6 @@ p {
 #user a:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
 #user a:active { background: rgb(152,15,0); } /* при нажатии */
 
-}
-
 #foot {
 	padding: 15px;
 	color: white;

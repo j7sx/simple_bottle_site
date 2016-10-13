@@ -60,6 +60,7 @@ h1 {
 
 #content {
 color: #ffffff;
+
 }
 h2 {
 	margin: 0;
@@ -109,6 +110,14 @@ p {
 } 
 #user a:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
 #user a:active { background: rgb(152,15,0); } /* при нажатии */
+
+#main_user{height: 200px;}
+#user_main {float: left; }
+.field {clear:both; text-align:right; line-height:25px;}
+label {float:left; padding-right:10px;}
+
+#avatar{float: left; vertical-align: center; padding-left: 20px;}
+#set_foto {margin-left: 120px; margin-top: 70px;}
 
 #foot {
 	padding: 15px;

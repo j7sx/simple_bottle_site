@@ -194,6 +194,10 @@ def lk():
     else:
         return template('views/login.tpl')
 
+@route("/user_info")
+def user_info():
+    return template("views/user.html")
+
 @route('/restrict')
 def restrict():
     return template("views/restrict.tpl")

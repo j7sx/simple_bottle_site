@@ -111,13 +111,23 @@ p {
 #user a:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
 #user a:active { background: rgb(152,15,0); } /* при нажатии */
 
-#main_user{height: 200px;}
-#user_main {float: left; }
+#main-user{height: 300px;}
+#user_main {float: left; padding-left: 30px;}
 .field {clear:both; text-align:right; line-height:25px;}
 label {float:left; padding-right:10px;}
 
-#avatar{float: left; vertical-align: center; padding-left: 20px;}
-#set_foto {margin-left: 120px; margin-top: 70px;}
+#avatar{float: right; vertical-align: center; padding-right: 80px;}
+#f_btn{text-align: center; }
+
+#ava{
+  width: 200px;
+  height:200px;
+  hspace: 10px;
+  vspace: 10px;
+  border: 0px;
+} 
+
+#set_foto {}
 
 #foot {
 	padding: 15px;

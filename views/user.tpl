@@ -45,12 +45,12 @@
             <div class="field">
               <label>Пол:</label>
               <input type="radio" name="sex" value="man">м</input><input type="radio" name="sex" value="woman">ж</input></br>
-            </div>
+            </div></br></br></br></br>
               <button id="send_user_info">Отправить</button>
           </div>
           <div id="avatar">
-             <img></img></br>
-             <button id="set_foto">Добавить фото</button> <button id="del_foto">Убрать фото</button>
+             <img id="ava" src="../static/images/users/ava.jpg"></img></br>
+             <div id="f_btn"><button id="set_foto">Добавить фото</button> <button id="del_foto">Убрать фото</button></div>
           </div>
           </div>
     </div>

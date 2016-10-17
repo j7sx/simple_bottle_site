@@ -196,7 +196,7 @@ def lk():
 
 @route("/user_info")
 def user_info():
-    return template("views/user.html")
+    return template("views/user.tpl")
 
 @route('/restrict')
 def restrict():

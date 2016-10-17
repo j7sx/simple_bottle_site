@@ -49,9 +49,32 @@
               <button id="send_user_info">Отправить</button>
           </div>
           <div id="avatar">
-             <img id="ava" src="../static/images/users/ava.jpg"></img></br>
+              %from bottle import request
+              %import sqlite3
+              %import os
+
+              %session = request.get_cookie("user")
+              %db = sqlite3.connect("site.db")
+              %cur = db.cursor()
+              %cur.execute("select login from users where session_id=?", (session,))
+              %user = cur.fetchone()
+              %db.close()
+              %user = user[0]
+              %path1 = os.getcwd()
+              %path2 = "static\images\users"
+              %path3 = str(user)+'.jpg'
+              %path4 = os.path.join(path1, path2, path3)
+              %ifile = os.path.exists(path3)
+              %if ifile:
+              %new_path = path4.split('\users\')
+              %new_path2 = '../static/images/users/' + str(new_path[-1])
+              {{new_path}}
+                  <img id="ava" src={{new_path2}}></img></br>
+              %else:
+                  <img id="ava" src="../static/images/users/ava.jpg"></img></br>
              <div id="f_btn"><button id="set_foto">Добавить фото</button> <button id="del_foto">Убрать фото</button></div>
           </div>
+              {{new_path}}
           </div>
     </div>
     <div id="foot">Bottle tutorial by j7sx</div>

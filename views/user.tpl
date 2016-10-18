@@ -48,30 +48,10 @@
             </div></br></br></br></br>
               <button id="send_user_info">Отправить</button>
           </div>
-          <div id="avatar">
-              %from bottle import request
-              %import sqlite3
-              %import os
-
-              %session = request.get_cookie("user")
-              %db = sqlite3.connect("site.db")
-              %cur = db.cursor()
-              %cur.execute("select login from users where session_id=?", (session,))
-              %user = cur.fetchone()
-              %db.close()
-              %user = user[0]
-              %path1 = "static/images/users/"
-              %path2 = str(user)+'.jpg'
-              %path3 = path1+path2
-              %ifile = os.path.exists(path3)
-              %if ifile:
-                  <img id="ava" src={{path3}}></img></br>
-                  <div id="f_btn"><button id="set_foto">Добавить фото</button> <button id="del_foto">Убрать фото</button></div>
-              %else:
-                  <img id="ava" src="../static/images/users/ava.jpg"></img></br>
+          <div id="avatar"> 
+                  <img id="ava" src="static/images/users/{{name}}"></img></br>
                   <div id="f_btn"><button id="set_foto">Добавить фото</button> <button id="del_foto">Убрать фото</button></div>
           </div>
-              {{path3}}
           </div>
     </div>
     <div id="foot">Bottle tutorial by j7sx</div>

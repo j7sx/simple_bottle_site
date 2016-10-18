@@ -194,9 +194,28 @@ def lk():
     else:
         return template('views/login.tpl')
 
+
+def get_foto_path():
+    user = get_username()
+    path1 = "static/images/users/"
+    file1 = str(user)+'.png'
+    file2 = str(user)+'.jpg'
+    path2 = os.path.join(path1, file1)
+    path3 = os.path.join(path1, file2)
+    file3 = "ava.jpg"
+    ifile1 = os.path.exists(path2)
+    ifile2 = os.path.exists(path3)
+    if ifile1:
+        return file1
+    elif ifile2:
+        return file2
+    else:
+        return file3
+
 @route("/user_info")
 def user_info():
-    return template("views/user.tpl")
+    test = "qwerty"
+    return template("views/user.tpl", name=get_foto_path())
 
 @route('/restrict')
 def restrict():

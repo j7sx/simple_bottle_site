@@ -4,8 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Bottle simple site</title>
 <script type="text/javascript" src="../static/jquery.js"></script>
+<script src="http://hayageek.github.io/jQuery-Upload-File/4.0.10/jquery.uploadfile.min.js"></script>
+<script type="text/javascript" src="../static/add_foto.js"></script>
 <style type="text/css">
 @import url(static/css.css);
+@import url(static/uploadfile.css);
 </style>
 <script type="text/javascript" src="../static/js.js"></script>
 
@@ -50,7 +53,8 @@
           </div>
           <div id="avatar"> 
                   <img id="ava" src="static/images/users/{{name}}"></img></br>
-                  <div id="f_btn"><button id="set_foto">Добавить фото</button> <button id="del_foto">Убрать фото</button></div>
+                    <div id="fileuploader" name="avatar">Upload</div>
+                        <div id="f_btn"><button id="del_foto">Убрать фото</button></div>
           </div>
           </div>
     </div>

@@ -212,6 +212,18 @@ def get_foto_path():
     else:
         return file3
 
+@post("/load_avatar")
+def load_avatar():
+    user = get_username()
+    ava = str(user)+'.jpg'
+    output_dir = "static/images/users"
+    avatar = request.get("avatar")
+    f = open(avatar, 'r')
+    counter = str(f.read())
+    f.seek(0)
+    f.write(counter)
+    f.close()
+
 @route("/user_info")
 def user_info():
     test = "qwerty"

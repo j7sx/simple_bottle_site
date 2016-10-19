@@ -5,6 +5,8 @@ import sqlite3
 import random
 import hashlib
 import base64
+import sys
+import cgi
 import os
 from db_create import db_create
 from bottle import route, request, post, run, template, static_file, response, redirect, abort
@@ -215,14 +217,13 @@ def get_foto_path():
 @post("/load_avatar")
 def load_avatar():
     user = get_username()
-    ava = str(user)+'.jpg'
-    output_dir = "static/images/users"
-    avatar = request.get("avatar")
-    f = open(avatar, 'r')
-    counter = str(f.read())
-    f.seek(0)
-    f.write(counter)
-    f.close()
+    output_dir = "static/images/users/"
+    avatar = request.files.get("myfile")
+    name, ext = os.path.splitext(avatar.filename)
+    ava = str(user)+ext
+    if ext not in ('.png','.jpg','.jpeg'):
+        return 'File extension not allowed.'
+    avatar.save(output_dir)
 
 @route("/user_info")
 def user_info():
@@ -239,4 +240,4 @@ def logout():
     delete_cookie(sid)
     return template("views/logout.html")
 
-run(reloader=True, debug=True)
+run(reloader=True, port=8092, debug=True)

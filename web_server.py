@@ -118,7 +118,7 @@ def html(filename):
     return static_file(filename, root='views')
 
 ####################### Грузим картинки ############################################
-@route('/static/images/<filename:re:.*\.(jpg|png|gif|ico)>')
+@route('/static/images/<filename:re:.*\.(jpg|jpeg|png|gif|ico)>')
 def images(filename):
     return static_file(filename, root='static/images')
 
@@ -197,22 +197,16 @@ def lk():
         return template('views/login.tpl')
 
 
-def get_foto_path():
+def set_avatar():
     user = get_username()
-    path1 = "static/images/users/"
-    file1 = str(user)+'.png'
-    file2 = str(user)+'.jpg'
-    path2 = os.path.join(path1, file1)
-    path3 = os.path.join(path1, file2)
-    file3 = "ava.jpg"
-    ifile1 = os.path.exists(path2)
-    ifile2 = os.path.exists(path3)
-    if ifile1:
-        return file1
-    elif ifile2:
-        return file2
-    else:
-        return file3
+    avatar_dir = os.getcwd() + "/static/images/users/"
+    list_avatars = os.listdir(avatar_dir)
+    for avatar in list_avatars:
+        if user in avatar:
+            ava = str(avatar)
+            return ava
+        else:
+            return "ava.jpg"
 
 @post("/load_avatar")
 def load_avatar():
@@ -220,15 +214,22 @@ def load_avatar():
     output_dir = "static/images/users/"
     avatar = request.files.get("myfile")
     name, ext = os.path.splitext(avatar.filename)
+    loading_ava = output_dir+name+ext
+    if os.path.exists(loading_ava):
+        os.remove(loading_ava)
     ava = str(user)+ext
     if ext not in ('.png','.jpg','.jpeg'):
         return 'File extension not allowed.'
     avatar.save(output_dir)
+    loaded_ava = name+ext
+    os.chdir(output_dir)
+    os.rename(loaded_ava, ava)
+    
 
 @route("/user_info")
 def user_info():
     test = "qwerty"
-    return template("views/user.tpl", name=get_foto_path())
+    return template("views/user.tpl", name=set_avatar())
 
 @route('/restrict')
 def restrict():

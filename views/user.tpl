@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Bottle simple site</title>
 <script type="text/javascript" src="../static/jquery.js"></script>
-<script src="http://hayageek.github.io/jQuery-Upload-File/4.0.10/jquery.uploadfile.min.js"></script>
+<script src="../static/jquery.uploadfile.min.js"></script>
 <script type="text/javascript" src="../static/add_foto.js"></script>
 <style type="text/css">
 @import url(static/css.css);
